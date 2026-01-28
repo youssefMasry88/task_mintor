@@ -4,8 +4,12 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   base: "/task_mintor/",
-  plugins: [tailwindcss(), react()],
-  build: {
-    outDir: "docs",
-  },
+  plugins: [
+    tailwindcss(),
+    react({
+      babel: {
+        plugins: [["babel-plugin-react-compiler"]],
+      },
+    }),
+  ],
 });
